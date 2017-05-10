@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import{GetdatafromMongoService} from './getdatafrom-mongo.service';
+import{GetdatafromMongoService,custDetail} from './getdatafrom-mongo.service';
 import {Observable} from 'rxjs/observable';
 import 'rxjs/add/operator/map';
 @Component({
@@ -12,9 +12,12 @@ export class AppComponent implements OnInit{
   title = 'app works!';
   heroes:any[];
   errorMessage: string;
-  items: Observable<string[]>;
+  items: Observable<custDetail[]>;
 
   ngOnInit(){
-  console.log( this._data.getdata());
-  }
+  this.items= this._data.getdata();
+}
+calldata(){
+  console.log(this.items);
+}
 }

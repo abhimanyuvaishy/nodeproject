@@ -17,20 +17,9 @@ export class GetdatafromMongoService {
  //dta='"data":{"first_name":"Abhimanyu","last_name":"Kumar"}';
   getdata(){
    return this._jsonp.request('http://localhost:3000/api/tasks?callback=JSONP_CALLBACK',{ method: 'Get' })
-    .map(res => res.json())
-      .subscribe((response) => {return response});
-    // .subscribe(res => {
-    //  // console.log(res.json());
-    //       return res.json().results.map(item => {
-    //         return new Array<custDetail>(
-    //             item._id,
-    //             item.first_name,
-    //             item.last_name,
-    //             item.age,
-    //             item.designation,
-    //             item.Skills,
-    //         );
-    //       });
-    //     });
+    // .map(res => res.json())
+    //   .subscribe((response) => {return response});
+    .map(response => <custDetail[]> response.json());
+
   }
 }
