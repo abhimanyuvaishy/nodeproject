@@ -8,7 +8,7 @@ router.get('/tasks',function(req,res,next){
         if(error){
             res.send(error);
         }
-        res.json(custom);
+        res.jsonp(custom);
     });
 });
 
@@ -20,7 +20,7 @@ router.get('/task/:id',function(req,res,next){
         if(error){
             res.send(error);
         }
-        res.json(custom);
+        res.jsonp(custom);
     });
 });
 
