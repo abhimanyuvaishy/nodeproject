@@ -14,11 +14,8 @@ export class custDetail{
 export class GetdatafromMongoService {
 
   constructor(private _jsonp:Jsonp) { }
- //dta='"data":{"first_name":"Abhimanyu","last_name":"Kumar"}';
   getdata(){
    return this._jsonp.request('http://localhost:3000/api/tasks?callback=JSONP_CALLBACK',{ method: 'Get' })
-    // .map(res => res.json())
-    //   .subscribe((response) => {return response});
     .map(response => <custDetail[]> response.json());
 
   }
